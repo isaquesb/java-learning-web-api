@@ -58,12 +58,6 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Integer id) {
-        try {
-            userService.delete(id);
-        } catch (NotFoundException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
-        } catch (Throwable e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error");
-        }
+        userService.delete(id);
     }
 }
